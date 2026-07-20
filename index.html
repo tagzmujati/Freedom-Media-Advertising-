@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freedom Media and Advertising | Creative Agency Harare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #e8e2d5;
+      --card-bg: #f4efe6;
+      --text-dark: #1a1a1a;
+      --text-muted: #555555;
+      --accent: #2b2b2b;
+      --white: #ffffff;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(232, 226, 213, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: var(--text-dark);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #333;
+    }
+
+    /* Section Styling */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .gallery-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background-color: #d1c8b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-info {
+      padding: 1.2rem;
+    }
+
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 12px;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .info-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .info-list strong {
+      min-width: 90px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: var(--white);
+      font-family: var(--font-body);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="#" class="logo">Freedom Media</a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#photography">Photography</a></li>
+        <li><a href="#graphic-design">Graphic Design</a></li>
+        <li><a href="#video">Videography</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <p class="section-subtitle">Media & Advertising</p>
+    <h1>Crafting Stories That <span>Educate</span> & <span>Inspire</span></h1>
+    <p>From corporate campaign photography and brand identities to high-impact 2D animations and commercial video production.</p>
+    <a href="#contact" class="btn">Work With Us</a>
+  </section>
+
+  <!-- Services Overview -->
+  <section id="services">
+    <p class="section-subtitle">What We Do</p>
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Photography</h3>
+        <p>Corporate event coverage, public relations campaigns, private events, and professional wedding photography.</p>
+      </div>
+      <div class="service-card">
+        <h3>Graphic Design</h3>
+        <p>Strategic advertising materials, promotional posters, social media content, and full brand identities.</p>
+      </div>
+      <div class="service-card">
+        <h3>2D Animation</h3>
+        <p>Engaging educational and promotional animations tailored for YouTube channels and social campaigns.</p>
+      </div>
+      <div class="service-card">
+        <h3>Videography</h3>
+        <p>Motion graphics, commercial ad production, and end-to-end promotional video editing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photography Showcase -->
+  <section id="photography">
+    <p class="section-subtitle">Portfolio</p>
+    <h2 class="section-title">Photography Work</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img-placeholder">Vision Ability Zim Campaign (2024)</div>
+        <div class="gallery-info">
+          <h4>Corporate Photography</h4>
+          <p>Head of PR & event coverage for Vision Ability Zimbabwe disability inclusion campaign.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-placeholder">Tabem Media (2024)</div>
+        <div class="gallery-info">
+          <h4>Private & Social Events</h4>
+          <p>Luxury wedding, maternity, and lifestyle photography.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Graphic Design Showcase -->
+  <section id="graphic-design">
+    <p class="section-subtitle">Portfolio</p>
+    <h2 class="section-title">Graphic Design & Branding</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img-placeholder">Zim Snacks Campaigns</div>
+        <div class="gallery-info">
+          <h4>Promotional & E-Commerce Art</h4>
+          <p>Product sales posters, seasonal discounts, and social media ad layouts.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-placeholder">Event Announcements</div>
+        <div class="gallery-info">
+          <h4>Flyers & Posters</h4>
+          <p>Community awareness screening posters and event teasers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videography & Animation -->
+  <section id="video">
+    <p class="section-subtitle">Motion & Media</p>
+    <h2 class="section-title">Videography & 2D Animation</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img-placeholder">Vision Ability Zim Animation</div>
+        <div class="gallery-info">
+          <h4>2D Animation & Call to Action</h4>
+          <p>Educational animation promoting disability inclusion in society.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-placeholder">Commercial Motion Graphics</div>
+        <div class="gallery-info">
+          <h4>Video Ads & Content</h4>
+          <p>Dynamic promo videos and motion graphic ads for social media platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Let's Work Together</h3>
+        <ul class="info-list">
+          <li><strong>Location:</strong> Westlea, Harare</li>
+          <li><strong>Phone:</strong> +263 780 763 885</li>
+        </ul>
+        <h4>Connect With Us</h4>
+        <div class="social-links">
+          <a href="https://www.youtube.com/@TAGZMUJATI" target="_blank">YouTube: @TAGZ THE SAVAGE BEAST</a>
+          <a href="https://instagram.com/purplewoolenguy" target="_blank">Instagram: @purplewoolenguy</a>
+          <a href="#" target="_blank">Facebook: Troy Mjt</a>
+          <a href="#" target="_blank">LinkedIn: Taguma mujati</a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email or Phone" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Freedom Media and Advertising. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
